@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Amirifard | AI/ML Engineer</title>
-  <meta name="description" content="Portfolio website of Daniel Amirifard, AI/ML Engineer focused on scalable AI systems, LLM applications, RAG pipelines, agentic workflows, Amazon Bedrock, NAS, computer vision, and production-ready ML deployment." />
+  <meta name="description" content="Daniel Amirifard is an AI/ML Engineer in Milan building production AI systems, RAG applications, intelligent workflows, computer vision models, and applied machine learning products." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,8 +28,8 @@
       background-color: #07111f;
       background: linear-gradient(-45deg, #07111f, #0f172a, #172554, #0c4a6e, #0f172a);
       background-size: 420% 420%;
-      animation: gradient-animation 16s ease infinite;
-      color: #94a3b8;
+      animation: gradient-animation 28s ease infinite;
+      color: #a9b9cd;
     }
 
     .spotlight-effect {
@@ -38,7 +38,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(56, 189, 248, 0.12) 0%, transparent 22%, rgba(0, 0, 0, 0.78) 48%);
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(56, 189, 248, 0.08) 0%, transparent 24%, rgba(0, 0, 0, 0.34) 60%);
       z-index: 2;
     }
 
@@ -181,7 +181,7 @@
 
     .project-slide.active .project-card {
       transform: scale(1);
-      animation: card-breathe 4.5s ease-in-out infinite;
+      box-shadow: 0 24px 60px -34px rgba(56, 189, 248, 0.28);
       border-color: rgba(56, 189, 248, 0.36);
     }
 
@@ -195,7 +195,7 @@
     }
 
     .project-slide.active .project-card::before {
-      animation: liquid-shimmer 2.7s ease-in-out infinite;
+      opacity: 0;
     }
 
     .project-number {
@@ -326,8 +326,24 @@
       width: 100%;
     }
 
+    .project-control:focus-visible, .project-dot:focus-visible, a:focus-visible {
+      outline: 2px solid #7dd3fc;
+      outline-offset: 4px;
+    }
+
+    .project-slide:not(.active) { visibility: hidden; }
+
     @media (max-width: 640px) {
       .project-card { min-height: 620px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      body, .hero-orb, .project-slide.active .droplet-tag { animation: none !important; }
+      .fade-in-section, .project-slider-track, .card-hover-effect, .project-control,
+      .project-progress-bar { transition: none !important; }
+      .fade-in-section { opacity: 1; transform: none; }
+      .droplet-tag { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -338,7 +354,7 @@
 
   <div class="relative z-10 lg:flex lg:justify-between lg:gap-8 max-w-7xl mx-auto p-4 md:p-8">
     <!-- LEFT: Sticky Header & Navigation -->
-    <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-8">
+    <header class="lg:flex lg:w-1/2 lg:flex-col lg:justify-between lg:py-8">
       <div>
         <div class="relative">
           <div class="hero-orb -top-10 -left-10"></div>
@@ -357,21 +373,8 @@
                 Generative AI · LLMs · RAG · Agentic AI · MLOps
               </h2>
 
-              <!-- Top Actions: Download CV + Social Icons -->
+              <!-- Profile links -->
               <div class="mt-5 flex flex-wrap items-center gap-3">
-                <a
-                  href="Daniel_Amirifard_CV_AI_Engineer.pdf"
-                  download
-                  class="inline-flex items-center gap-2 rounded-xl bg-sky-400 px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-sky-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-sky-300 hover:shadow-sky-500/30"
-                  aria-label="Download Daniel Amirifard CV"
-                >
-                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                  </svg>
-                  Download CV
-                </a>
 
                 <a
                   href="https://linkedin.com/in/daniel-amirifard"
@@ -404,7 +407,7 @@
         </div>
 
         <p class="mt-7 max-w-md leading-relaxed text-slate-400">
-          I build scalable AI systems that turn complex business and research problems into production-ready solutions — from LLM applications, RAG pipelines, and agentic workflows to neural architecture search and computer vision systems.
+          I build AI products for real workflows: document intelligence, intelligent automation, model design, and computer vision. My work spans research prototypes through production-oriented systems.
         </p>
 
         <div class="mt-6 grid max-w-md grid-cols-2 gap-3 text-sm">
@@ -418,11 +421,11 @@
           </div>
           <div class="rounded-xl border border-slate-700/60 bg-slate-900/40 p-3">
             <p class="text-2xl font-black text-slate-100">93%</p>
-            <p class="text-slate-500">F1-Score Pipeline</p>
+            <p class="text-slate-500">Invoice classifier F1 score</p>
           </div>
           <div class="rounded-xl border border-slate-700/60 bg-slate-900/40 p-3">
             <p class="text-2xl font-black text-slate-100">85%</p>
-            <p class="text-slate-500">Manual Analysis Reduced</p>
+            <p class="text-slate-500">Less manual invoice review</p>
           </div>
         </div>
 
@@ -479,9 +482,6 @@
           <a href="mailto:daniel.amirifard@gmail.com" class="inline-flex items-center justify-center rounded-lg bg-sky-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-sky-300 transition-all duration-300">
             Contact Me
           </a>
-          <a href="Daniel_Amirifard_CV_AI_Engineer.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-sky-400/10 px-5 py-3 text-sm font-bold text-sky-300 border border-sky-400/30 hover:bg-sky-400/20 hover:text-white transition-all duration-300">
-            View Resume
-          </a>
           <a href="https://github.com/daniel-amirifard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-lg bg-slate-800/70 px-5 py-3 text-sm font-bold text-slate-200 border border-slate-700/70 hover:border-sky-400/40 hover:text-sky-300 transition-all duration-300">
             GitHub
           </a>
@@ -494,13 +494,13 @@
       <section id="about" class="fade-in-section mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
         <h2 class="text-2xl font-bold tracking-tight text-slate-200 lg:hidden mb-6">About</h2>
         <p class="mb-4 leading-relaxed">
-          I am an <strong class="font-semibold text-slate-200">AI/ML Engineer</strong> with <strong class="font-semibold text-slate-200">4+ years of experience</strong> in <strong class="font-semibold text-slate-200">Generative AI</strong>, <strong class="font-semibold text-slate-200">Large Language Models</strong>, and ML/DL domains. I graduated from <strong class="font-semibold text-slate-200">Politecnico di Milano</strong> and have delivered <strong class="font-semibold text-slate-200">30+ AI projects</strong> across academic and industry environments.
+          I am an <strong class="font-semibold text-slate-200">AI/ML Engineer</strong> with <strong class="font-semibold text-slate-200">4+ years of experience</strong> building machine learning, deep learning, and generative AI solutions. I hold an MSc from <strong class="font-semibold text-slate-200">Politecnico di Milano</strong> and have contributed to <strong class="font-semibold text-slate-200">30+ AI/ML projects</strong> in academic and industry settings.
         </p>
         <p class="mb-4 leading-relaxed">
-          My work focuses on building scalable AI systems, LLM applications, RAG pipelines, agentic workflows, and production-ready model deployments. I have worked on practical AI solutions connected to <strong class="font-semibold text-slate-200">Hermes/Baker Hughes</strong>, <strong class="font-semibold text-slate-200">STMicroelectronics</strong>, <strong class="font-semibold text-slate-200">Nokia</strong>, and Polimi Data Scientists Association.
+          My recent work connects <strong class="font-semibold text-slate-200">LLMs, RAG, and AI agents</strong> to useful products: classifying invoices, generating technical reports from long documents, and helping recruiters search and rank CVs. I have worked on projects involving Hermes, Baker Hughes, STMicroelectronics, and Nokia.
         </p>
         <p class="leading-relaxed">
-          I enjoy transforming complex technical ideas into reliable products — from RAG-based invoice classification and multi-step LLM agents to neural architecture search, computer vision, and forecasting systems that improve automation, speed, and decision-making.
+          Beyond generative AI, I work across computer vision, time-series forecasting, data pipelines, and model deployment. I focus on reliable systems that solve a defined problem and can be used by real teams.
         </p>
       </section>
 
@@ -514,13 +514,16 @@
                 <h3 class="font-semibold leading-snug text-slate-200"><span class="card-title transition-colors duration-300">Artificial Intelligence Engineer · Hermes / Baker Hughes</span></h3>
                 <p class="mt-1 text-sm text-slate-500">Full-time · Milan, Italy</p>
                 <p class="mt-3 text-sm leading-normal">
-                  Developed 3+ production-oriented GenAI solutions from PoC to deployment, using RAG pipelines, LangGraph, and Amazon Bedrock to improve automation, scalability, and business impact.
+                  Developed 3+ production-oriented GenAI solutions from proof of concept to product using RAG pipelines, LangGraph, and Amazon Bedrock.
                 </p>
                 <p class="mt-2 text-sm leading-normal">
-                  Built agentic AI systems with multi-step reasoning, workflow automation, prompt engineering, and decision-making pipelines, reducing manual analysis by around 85% across client-facing business processes.
+                  Cut manual invoice review effort by approximately 85% with a LangChain-based agentic RAG system that classifies milestones from structured invoice fields and unstructured text.
                 </p>
                 <p class="mt-2 text-sm leading-normal">
-                  Delivered AI applications across financial invoice classification, chemical-sector workflows, and energy-sector use cases, with one ML classification pipeline achieving a 93% F1-score.
+                  Built a FAISS-backed reporting workflow that processes technical PDFs of up to 500 pages and generates mechanical fracture test reports in a required template.
+                </p>
+                <p class="mt-2 text-sm leading-normal">
+                  Delivered applications across financial, chemical, and energy workflows; an invoice classification pipeline achieved a 93% F1 score.
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2"><li class="pill">RAG</li><li class="pill">LangGraph</li><li class="pill">Amazon Bedrock</li><li class="pill">Mistral</li><li class="pill">Agentic AI</li></ul>
               </div>
@@ -529,7 +532,7 @@
 
           <div class="card-hover-effect p-6 rounded-2xl">
             <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4">
-              <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">May 2025 — Nov 2025</header>
+              <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">Jun 2025 — Nov 2025</header>
               <div class="z-10 sm:col-span-6">
                 <h3 class="font-semibold leading-snug text-slate-200"><span class="card-title transition-colors duration-300">Machine Learning Engineer · STMicroelectronics</span></h3>
                 <p class="mt-1 text-sm text-slate-500">Full-time · Milan, Italy</p>
@@ -560,7 +563,7 @@
                   Organized data pipelines for efficient ETL processes and sourced relevant datasets adopted in 5+ projects including SIIT and breast cancer detection.
                 </p>
                 <p class="mt-2 text-sm leading-normal">
-                  Showcased project progress to team members and international students biweekly, contributing to the completion of four significant GenAI projects.
+                  Presented progress in biweekly technical sessions and contributed to four major student-led AI projects.
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2"><li class="pill">Computer Vision</li><li class="pill">Anomaly Detection</li><li class="pill">Time Series</li><li class="pill">ETL</li><li class="pill">GenAI</li></ul>
               </div>
@@ -594,7 +597,7 @@
               <header class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2">Sep 2022 — Mar 2026</header>
               <div class="z-10 sm:col-span-6">
                 <h3 class="font-semibold leading-snug text-slate-200"><span class="card-title transition-colors duration-300">MSc, Telecommunication Engineering</span></h3>
-                <p class="mt-1 text-sm leading-normal text-slate-400">Computer Science and Communications · Politecnico di Milano</p>
+                <p class="mt-1 text-sm leading-normal text-slate-400">Internet of Things · Politecnico di Milano</p>
                 <p class="mt-2 text-sm text-slate-500">Milan, Italy</p>
               </div>
             </div>
@@ -618,9 +621,9 @@
           <div>
             <h2 class="text-2xl font-bold tracking-tight text-slate-200 lg:hidden mb-2">Projects</h2>
             <p class="text-sm uppercase tracking-[0.28em] text-sky-300/80 font-black">Featured Work</p>
-            <h3 class="mt-2 text-2xl md:text-3xl font-black tracking-tight text-slate-100">Interactive AI project showcase</h3>
+            <h3 class="mt-2 text-2xl md:text-3xl font-black tracking-tight text-slate-100">Applied AI, from prototype to product</h3>
             <p class="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
-              Each project is organized around its goal, measurable achievement, and tools used — highlighting RAG, agentic AI, computer vision, AutoML, SaaS architecture, and production deployment impact.
+              Selected work across document intelligence, candidate screening, AutoML, computer vision, and forecasting. Browse each project for the problem, result, and technical approach.
             </p>
           </div>
           <div class="hidden sm:flex items-center gap-3">
@@ -638,7 +641,7 @@
             <div class="project-slider-track" data-project-track>
               <article class="project-slide active">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">01 / 08</span>
+                  <span class="project-number">01 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">FIN</span></div>
@@ -667,12 +670,69 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">02 / 08</span>
+                  <span class="project-number">02 / 10</span>
+                  <div class="relative z-10 flex h-full flex-col justify-between gap-7">
+                    <div>
+                      <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">CV</span></div>
+                      <p class="text-xs font-black uppercase tracking-[0.28em] text-sky-300/80">Hiring · Search · Conversational AI</p>
+                      <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-100">AI-Powered CV Screening and Candidate Ranking</h3>
+                    </div>
+                    <div class="project-detail-grid">
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Goal</p>
+                        <p class="text-sm leading-relaxed text-slate-400">Help recruiters extract information, compare applicants, and explore CVs through a searchable interface.</p>
+                      </div>
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Achievement</p>
+                        <p class="text-sm leading-relaxed text-slate-400">Built a containerized web application for Hermes designed to handle up to 1,000 CVs per week, combining CV extraction, RAG-based analysis, candidate ranking, and a recruiter chatbot.</p>
+                      </div>
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Tools Used</p>
+                        <div class="flex flex-wrap gap-2"><span class="droplet-tag" style="--delay: 80ms">RAG</span><span class="droplet-tag" style="--delay: 150ms">CV extraction</span><span class="droplet-tag" style="--delay: 220ms">Conversational AI</span><span class="droplet-tag" style="--delay: 290ms">Docker</span><span class="droplet-tag" style="--delay: 360ms">Web UI</span></div>
+                      </div>
+                    </div>
+                    <div class="project-progress-shell"><div class="project-progress-bar"></div></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-slide">
+                <div class="project-card p-7 md:p-8">
+                  <span class="project-number">03 / 10</span>
+                  <div class="relative z-10 flex h-full flex-col justify-between gap-7">
+                    <div>
+                      <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">DOC</span></div>
+                      <p class="text-xs font-black uppercase tracking-[0.28em] text-sky-300/80">Document Intelligence · Report Automation</p>
+                      <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-100">AI-Driven Mechanical Test Report Generation</h3>
+                    </div>
+                    <div class="project-detail-grid">
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Goal</p>
+                        <p class="text-sm leading-relaxed text-slate-400">Turn lengthy technical source documents into consistent, template-ready mechanical fracture test reports.</p>
+                      </div>
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Achievement</p>
+                        <p class="text-sm leading-relaxed text-slate-400">Developed a retrieval-based workflow that processes PDFs of up to 500 pages and generates reports in the required template, reducing manual drafting effort.</p>
+                      </div>
+                      <div class="project-detail-box">
+                        <p class="project-detail-label">Tools Used</p>
+                        <div class="flex flex-wrap gap-2"><span class="droplet-tag" style="--delay: 80ms">RAG</span><span class="droplet-tag" style="--delay: 150ms">FAISS</span><span class="droplet-tag" style="--delay: 220ms">PDF processing</span><span class="droplet-tag" style="--delay: 290ms">Amazon Bedrock</span></div>
+                      </div>
+                    </div>
+                    <div class="project-progress-shell"><div class="project-progress-bar"></div></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-slide">
+                <div class="project-card p-7 md:p-8">
+                  <span class="project-number">04 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">RAG</span></div>
                       <p class="text-xs font-black uppercase tracking-[0.28em] text-sky-300/80">NLP · Question Answering</p>
                       <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-100">Long Form Question Answering ChatBot</h3>
+                      <a href="https://github.com/Daniel-Amirifard/LFQA" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex text-sm font-semibold text-sky-300 hover:text-sky-100">View project on GitHub ↗</a>
                     </div>
 
                     <div class="project-detail-grid">
@@ -696,7 +756,7 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">03 / 08</span>
+                  <span class="project-number">05 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">NAS</span></div>
@@ -725,7 +785,7 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">04 / 08</span>
+                  <span class="project-number">06 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">BOT</span></div>
@@ -754,7 +814,7 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">05 / 08</span>
+                  <span class="project-number">07 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">ART</span></div>
@@ -783,12 +843,13 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">06 / 08</span>
+                  <span class="project-number">08 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">3D</span></div>
                       <p class="text-xs font-black uppercase tracking-[0.28em] text-sky-300/80">Computer Vision · Autonomous Driving</p>
                       <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-100">Cooperative Perception in Automated Cars</h3>
+                      <a href="https://github.com/daniel-amirifard/V2V_Cooperative_Perception" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex text-sm font-semibold text-sky-300 hover:text-sky-100">View project on GitHub ↗</a>
                     </div>
 
                     <div class="project-detail-grid">
@@ -812,12 +873,13 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">07 / 08</span>
+                  <span class="project-number">09 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">TS</span></div>
                       <p class="text-xs font-black uppercase tracking-[0.28em] text-sky-300/80">Forecasting · Deep Learning</p>
                       <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-100">Traffic Forecasting</h3>
+                      <a href="https://github.com/Daniel-Amirifard/Traffic-forecasting/tree/main" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex text-sm font-semibold text-sky-300 hover:text-sky-100">View project on GitHub ↗</a>
                     </div>
 
                     <div class="project-detail-grid">
@@ -841,7 +903,7 @@
 
               <article class="project-slide">
                 <div class="project-card p-7 md:p-8">
-                  <span class="project-number">08 / 08</span>
+                  <span class="project-number">10 / 10</span>
                   <div class="relative z-10 flex h-full flex-col justify-between gap-7">
                     <div>
                       <div class="project-icon-orb mb-6"><span class="text-lg font-black text-sky-100">AI</span></div>
@@ -921,6 +983,9 @@
               <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">LG</span><span class="font-medium text-sm text-slate-300">LangGraph</span></div>
               <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">PE</span><span class="font-medium text-sm text-slate-300">Prompt Engineering</span></div>
               <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">BOT</span><span class="font-medium text-sm text-slate-300">Chatbots</span></div>
+              <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">FX</span><span class="font-medium text-sm text-slate-300">FAISS</span></div>
+              <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">LI</span><span class="font-medium text-sm text-slate-300">LlamaIndex</span></div>
+              <div class="flex items-center space-x-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50"><span class="h-6 w-6 rounded-md bg-sky-400/20 text-sky-300 text-xs font-black grid place-items-center">MCP</span><span class="font-medium text-sm text-slate-300">MCP</span></div>
             </div>
           </div>
 
@@ -938,6 +1003,7 @@
             </div>
           </div>
         </div>
+        <p class="mt-8 text-sm text-slate-400"><span class="font-semibold text-slate-200">Languages</span> · English C1 · Italian A2</p>
       </section>
 
       <section id="workshops" class="fade-in-section mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
@@ -991,8 +1057,7 @@
       </section>
 
       <footer class="text-center text-sm text-slate-500 mt-24 pb-8">
-        <p>Designed with Tailwind CSS. Built for GitHub Pages.</p>
-        <p>&copy; 2026 Daniel Amirifard. All Rights Reserved.</p>
+        <p>&copy; 2026 Daniel Amirifard · Milan, Italy</p>
       </footer>
     </main>
   </div>
@@ -1005,7 +1070,7 @@
         spotlight.style.setProperty('--y', event.clientY + 'px');
       });
 
-      const sections = document.querySelectorAll('section[id]');
+      const sections = document.querySelectorAll('.fade-in-section');
       const navLinks = document.querySelectorAll('.nav-link');
 
       const observerOptions = {
@@ -1017,7 +1082,7 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const id = entry.target.getAttribute('id');
-          const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+          const navLink = id ? document.querySelector(`.nav-link[href="#${id}"]`) : null;
 
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
@@ -1081,6 +1146,7 @@
           slides.forEach((slide, slideIndex) => {
             const isActive = slideIndex === activeIndex;
             slide.classList.toggle('active', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
             resetProgressAnimation(slide);
             if (isActive) {
               requestAnimationFrame(() => {
@@ -1092,6 +1158,7 @@
 
           dots.forEach((dot, dotIndex) => {
             dot.classList.toggle('active', dotIndex === activeIndex);
+            dot.setAttribute('aria-current', String(dotIndex === activeIndex));
           });
         }
 
@@ -1105,6 +1172,7 @@
 
         function restartAutoSlide() {
           if (autoSlideTimer) clearInterval(autoSlideTimer);
+          if (document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
           autoSlideTimer = setInterval(nextProject, slideDuration);
         }
 
@@ -1140,8 +1208,15 @@
           }
         });
 
+        projectCarousel.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
+        projectCarousel.addEventListener('mouseleave', restartAutoSlide);
+        projectCarousel.addEventListener('focusin', () => clearInterval(autoSlideTimer));
+        projectCarousel.addEventListener('focusout', (event) => {
+          if (!projectCarousel.contains(event.relatedTarget)) restartAutoSlide();
+        });
+
         setActiveProject(0);
-        restartAutoSlide();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) restartAutoSlide();
       }
     });
   </script>
