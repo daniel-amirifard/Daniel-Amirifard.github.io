@@ -7,7 +7,77 @@
   <meta property="og:title" content="محمد و مهنوش · جشن عروسی">
   <meta property="og:description" content="جمعه ۴ دی ۱۴۰۵ — شما دعوت شده‌اید!">
   <meta property="og:image" content="https://daniel-amirifard.github.io/hero.jpg">
-  <meta http-equiv="refresh" content="0; url=https://wages-giant-unknown-soc.trycloudflare.com/">
+  <!--
+    This page forwards guests to the wedding site, whose address changes every time the
+    laptop starts a new Cloudflare tunnel. start_public.sh uploads it with the current
+    address in place of every trycloudflare.com address below. Edit it in the wedding_party
+    project (forwarding_page/index.html), not on GitHub: the next upload replaces it.
+  -->
+  <noscript><meta http-equiv="refresh" content="0; url=https://intermediate-shannon-trek-farm.trycloudflare.com/"></noscript>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+           box-sizing: border-box; text-align: center; line-height: 2;
+           font-family: Vazirmatn, Tahoma, sans-serif; color: #7f6064; background: #fff; }
+    a { color: #7f6064; }
+  </style>
 </head>
-<body><p><a href="https://wages-giant-unknown-soc.trycloudflare.com/">باز کردن دعوت‌نامه</a></p></body>
+<body>
+  <main>
+    <p id="status">در حال باز کردن دعوت‌نامه…</p>
+    <p><a id="open" href="https://intermediate-shannon-trek-farm.trycloudflare.com/">باز کردن دعوت‌نامه</a></p>
+  </main>
+  <script>
+    // GitHub Pages lets phones keep this page for 10 minutes, and some keep it longer. A saved
+    // copy holds the address from when it was saved, which may no longer work. So the address
+    // is taken from a fresh copy of this page, downloaded right now.
+    (function () {
+      var ADDRESS = /https:\/\/[-a-z0-9]+\.trycloudflare\.com/i;  // what a tunnel address looks like
+      var WAIT = 15;  // seconds to wait before trying an address that didn't answer
+      var link = document.getElementById("open");
+      var status = document.getElementById("status");
+
+      // The site sends guests back here with ?from=<its address> when that address doesn't work.
+      var from = (location.search.match(/[?&]from=([^&#]*)/) || [])[1];
+      from = from ? decodeURIComponent(from).toLowerCase() : "";
+
+      if (!window.fetch || !window.Promise) {  // a very old browser: use the address in this copy
+        location.replace(link.href);
+        return;
+      }
+
+      // The address in a fresh copy of this page. cache "no-store" and the unique ?v= keep the
+      // phone from answering with the copy it saved before. No answer within 6 seconds: null.
+      function freshAddress() {
+        var download = fetch(location.pathname + "?v=" + Date.now(), { cache: "no-store" })
+          .then(function (response) { return response.ok ? response.text() : ""; })
+          .then(function (page) { var found = page.match(ADDRESS); return found ? found[0] + "/" : null; })
+          .catch(function () { return null; });
+        var tooSlow = new Promise(function (done) { setTimeout(function () { done(null); }, 6000); });
+        return Promise.race([download, tooSlow]);
+      }
+
+      function hostOf(address) {
+        return address.replace(/^https:\/\//i, "").replace(/\/.*$/, "").toLowerCase();
+      }
+
+      function openInvitation() {
+        freshAddress().then(function (address) {
+          address = address || link.href;  // no fresh copy (bad connection): the one in this copy
+          link.href = address;
+          if (from && hostOf(address) === from) {
+            // The guest was just sent back from this very address: it doesn't answer right now
+            // (the laptop may be restarting the site or the tunnel). Wait, then try again.
+            status.textContent = "دعوت‌نامه چند لحظه در دسترس نیست. چند ثانیه دیگر دوباره امتحان می‌کنیم…";
+            from = "";
+            setTimeout(openInvitation, WAIT * 1000);
+            return;
+          }
+          location.replace(address);
+        });
+      }
+
+      openInvitation();
+    })();
+  </script>
+</body>
 </html>
